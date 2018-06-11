@@ -1,6 +1,9 @@
 package br.uem;
 
+import java.text.ParseException;
 import java.util.List;
+
+import javax.swing.text.MaskFormatter;
 
 import br.uem.endereco.Endereco;
 
@@ -87,5 +90,21 @@ public class Pessoa {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
+	
+	public Object getIdentidadeFormatada() {
+		return formatString(Integer.toString(identidade), "#######-#");
+	}
+	
+	public static String formatString(String value, String pattern) {
+        MaskFormatter mf;
+        try {
+            mf = new MaskFormatter(pattern);
+            mf.setValueContainsLiteralCharacters(false);
+            return mf.valueToString(value);
+        } catch (ParseException ex) {
+            return value;
+        }
+    }
+
 
 }

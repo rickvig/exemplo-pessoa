@@ -1,0 +1,57 @@
+package br.uem;
+
+import static org.junit.Assert.*;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.ExpectedException;
+
+public class TelefoneTest {
+
+	@Rule
+	public final ExpectedException exception = ExpectedException.none();
+
+	private Telefone subject;
+
+	@Test
+	public void testConstrutorDefault() {
+		exception.expect(RuntimeException.class);
+		exception.expectMessage("Não use este construtor");
+		
+		subject = new Telefone();
+	}
+
+	@Test
+	public void testTelefoneEntradas() {
+		Telefone t1 = new Telefone("44999410923");
+//		Telefone t2 = new Telefone("44 999410923");
+//		Telefone t3 = new Telefone("44 9 99410923");
+//		Telefone t4 = new Telefone("44 9 9941-0923");
+//		Telefone t5 = new Telefone("(44)999410923");
+//		Telefone t6 = new Telefone("(44) 999410923");
+//		Telefone t7 = new Telefone("(44) 9 99410923");
+//		Telefone t8 = new Telefone("(44) 9 9941-0923");		
+
+		List<Telefone> telefones = Arrays.asList(t1);
+		
+		for (Telefone t : telefones) {
+			System.out.println(t);
+			assertTrue(t .isValido());		
+		}
+	}
+
+	@Test
+	public void testTelefoneInvalido() {
+		exception.expect(RuntimeException.class);
+		exception.expectMessage("Telefone inválido!");
+	}
+
+	@Test
+	public void testTelefoneDoParana() {
+		fail("Not yet implemented");
+	}
+
+}

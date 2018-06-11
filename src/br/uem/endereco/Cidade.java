@@ -1,10 +1,8 @@
 package br.uem.endereco;
 
 class Cidade {
+	
+	Estado estado;
 	String nome;
 
-	public Cidade(String nome) {
-		super();
-		this.nome = nome;
-	}
 }
