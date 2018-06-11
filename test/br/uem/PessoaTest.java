@@ -4,6 +4,7 @@ import static java.util.Arrays.asList;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.mockito.Mockito;
 
 public class PessoaTest {
 
@@ -19,6 +20,18 @@ public class PessoaTest {
 		int novaIdade = pessoa.somaIdade(30);
 		
 		assertEquals(58, novaIdade);
+	}
+	
+	@Test
+	public void testPessoaFala() {
+		Pessoa pessoa = Mockito.mock(Pessoa.class);
+		pessoa.fala();
+		Mockito.verify(pessoa).fala();
+	}
+	
+	@Test
+	public void testPessoaOuve() {
+		fail("Not yet implemented");
 	}
 	
 	@Test

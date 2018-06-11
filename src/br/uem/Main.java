@@ -12,10 +12,7 @@ public class Main {
 								28, 'M', 9161201, 
 								asList(new Telefone()));
 		henrique.fala();
-		int idadeApos50Anos = henrique.somaIdade(40);
-		
-		System.out.println(idadeApos50Anos == 78);
-		
+		int idadeApos50Anos = henrique.somaIdade(40);		
 		
 		//System.out.println(henrique);
 		
