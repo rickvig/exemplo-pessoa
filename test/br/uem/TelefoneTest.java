@@ -53,5 +53,10 @@ public class TelefoneTest {
 	public void testTelefoneDoParana() {
 		fail("Not yet implemented");
 	}
+	
+	@Test
+	public void testTelefoneFormatado() {
+		fail("Not yet implemented");
+	}
 
 }

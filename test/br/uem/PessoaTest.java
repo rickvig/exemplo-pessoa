@@ -27,6 +27,11 @@ public class PessoaTest {
 	}
 	
 	@Test
+	public void testPessoaTemQuantosTelefones() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
 	public void testPessoaTemEndereco() {
 		fail("Not yet implemented");
 	}
