@@ -8,7 +8,9 @@ public class Telefone {
 	private Integer digito;
 	private Integer numero;
 
-	public Telefone() {	}
+	public Telefone() {
+		throw new RuntimeException("Não use este construtor");
+	}
 	
 	public Telefone(String telefone) {
 		//44 9 99410923

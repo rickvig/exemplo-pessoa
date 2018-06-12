@@ -6,6 +6,8 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import org.mockito.Mockito;
 
+import br.uem.endereco.Endereco;
+
 public class PessoaTest {
 
 	@Test
@@ -31,32 +33,40 @@ public class PessoaTest {
 	
 	@Test
 	public void testPessoaOuve() {
-		fail("Not yet implemented");
+		Pessoa pessoa = Mockito.mock(Pessoa.class);
+		pessoa.ouve();
+		Mockito.verify(pessoa).ouve();
 	}
 	
 	@Test
-	public void testPessoaTemTelefone() {
-		fail("Not yet implemented");
+	public void testPessoaTemTelefones() {
+		Pessoa pessoa = new Pessoa("Henrique", 28, 'M', 91612011, asList(new Telefone()));
+		assertTrue(pessoa.temTelefone());
 	}
 	
 	@Test
 	public void testPessoaTemQuantosTelefones() {
-		fail("Not yet implemented");
+		Pessoa pessoa = new Pessoa("Henrique", 28, 'M', 91612011, asList(new Telefone()));
+		assertEquals(1, pessoa.temQuantosTelefones());
 	}
 	
 	@Test
 	public void testPessoaTemEndereco() {
-		fail("Not yet implemented");
+		Pessoa pessoa = new Pessoa("Henrique", 28, 'M', 91612011, asList(new Telefone()));
+		pessoa.setEndereco(new Endereco());
+		assertTrue(pessoa.temEndereco());
 	}
 	
 	@Test
 	public void testRetornaSexoLegivel() {
-		fail("Not yet implemented");
+		Pessoa pessoa = new Pessoa("Henrique", 28, 'M', 91612011, asList(new Telefone()));
+		assertEquals("Masculino", pessoa.getSexo());
 	}
 	
 	@Test
 	public void testRetornaIdentidadeFormatada() {
-		fail("Not yet implemented");
+		Pessoa pessoa = new Pessoa("Henrique", 28, 'M', 91612011, asList(new Telefone()));
+		assertEquals("9191201-1", pessoa.getIdentidade());
 	}
 	
 

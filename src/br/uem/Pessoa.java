@@ -1,9 +1,6 @@
 package br.uem;
 
-import java.text.ParseException;
 import java.util.List;
-
-import javax.swing.text.MaskFormatter;
 
 import br.uem.endereco.Endereco;
 
@@ -13,7 +10,7 @@ public class Pessoa {
 	private int idade;
 	private char sexo;
 	private Integer identidade;
-	private List<Telefone> telefone;
+	private List<Telefone> telefones;
 	private Endereco endereco;
 
 	public Pessoa(String nome, int idade, char sexo, Integer identidade, List<Telefone> telefone) {
@@ -21,7 +18,7 @@ public class Pessoa {
 		this.idade = idade;
 		this.sexo = sexo;
 		this.identidade = identidade;
-		this.telefone = telefone;
+		this.telefones = telefone;
 	}
 	
 	public void fala() {
@@ -31,6 +28,22 @@ public class Pessoa {
 	public int somaIdade(int anos) {
 		return idade + anos;
 	}
+	
+	public void ouve() {
+		// TODO Auto-generated method stub
+	}
+
+	public boolean temTelefone() {
+		return !telefones.isEmpty();
+	}
+
+	public int temQuantosTelefones() {
+		return telefones.size();
+	}
+
+	public boolean temEndereco() {
+		return false;
+	}
 
 	@Override
 	public String toString() {
@@ -39,7 +52,7 @@ public class Pessoa {
 				+ "\nidade=" + idade + ", "
 				+ "\nsexo=" + sexo + ", "
 				+ "\nidentidade=" + identidade+ ", "
-				+ "\ntelefone=" + telefone + ", "
+				+ "\ntelefone=" + telefones + ", "
 				+ "\nendereco=" + endereco + "\n]";
 	}
 
@@ -76,11 +89,11 @@ public class Pessoa {
 	}
 
 	public List<Telefone> getTelefones() {
-		return telefone;
+		return telefones;
 	}
 
 	public void setTelefones(List<Telefone> telefones) {
-		this.telefone = telefones;
+		this.telefones = telefones;
 	}
 
 	public Endereco getEndereco() {
@@ -90,21 +103,5 @@ public class Pessoa {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
-	
-	public Object getIdentidadeFormatada() {
-		return formatString(Integer.toString(identidade), "#######-#");
-	}
-	
-	public static String formatString(String value, String pattern) {
-        MaskFormatter mf;
-        try {
-            mf = new MaskFormatter(pattern);
-            mf.setValueContainsLiteralCharacters(false);
-            return mf.valueToString(value);
-        } catch (ParseException ex) {
-            return value;
-        }
-    }
-
 
 }

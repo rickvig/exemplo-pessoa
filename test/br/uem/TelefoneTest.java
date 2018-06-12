@@ -1,5 +1,6 @@
 package br.uem;
 
+import static java.util.Arrays.asList;
 import static org.junit.Assert.*;
 
 import java.util.Arrays;
@@ -27,15 +28,15 @@ public class TelefoneTest {
 	@Test
 	public void testTelefoneEntradas() {
 		Telefone t1 = new Telefone("44999410923");
-//		Telefone t2 = new Telefone("44 999410923");
-//		Telefone t3 = new Telefone("44 9 99410923");
-//		Telefone t4 = new Telefone("44 9 9941-0923");
-//		Telefone t5 = new Telefone("(44)999410923");
-//		Telefone t6 = new Telefone("(44) 999410923");
-//		Telefone t7 = new Telefone("(44) 9 99410923");
-//		Telefone t8 = new Telefone("(44) 9 9941-0923");		
+		Telefone t2 = new Telefone("44 999410923");
+		Telefone t3 = new Telefone("44 9 99410923");
+		Telefone t4 = new Telefone("44 9 9941-0923");
+		Telefone t5 = new Telefone("(44)999410923");
+		Telefone t6 = new Telefone("(44) 999410923");
+		Telefone t7 = new Telefone("(44) 9 99410923");
+		Telefone t8 = new Telefone("(44) 9 9941-0923");		
 
-		List<Telefone> telefones = Arrays.asList(t1);
+		List<Telefone> telefones = asList(t1, t2, t3, t4, t5, t6, t7, t8);
 		
 		for (Telefone t : telefones) {
 			System.out.println(t);
