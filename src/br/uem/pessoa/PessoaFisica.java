@@ -1,69 +1,37 @@
-package br.uem;
+package br.uem.pessoa;
 
 import java.util.List;
 
-import br.uem.endereco.Endereco;
+import br.uem.Telefone;
 
-public class Pessoa {
-
-	private String nome;
+public final class PessoaFisica extends Pessoa {
+	
 	private int idade;
 	private char sexo;
-	private Integer identidade;
-	private List<Telefone> telefones;
-	private Endereco endereco;
-
-	public Pessoa(String nome, int idade, char sexo, Integer identidade, List<Telefone> telefone) {
-		this.nome = nome;
+	
+	public PessoaFisica(String nome, int idade, char sexo, CPF cpf, List<Telefone> telefone) {
+		super(nome, cpf, telefone);
 		this.idade = idade;
 		this.sexo = sexo;
-		this.identidade = identidade;
-		this.telefones = telefone;
 	}
-	
-	public void fala() {
-		System.out.println("OPA eu falo, sou o: " + nome);
+
+	@Override
+	public String souDoTipo() {
+		return this.getClass().toString();
 	}
 	
 	public int somaIdade(int anos) {
 		return idade + anos;
 	}
 	
+	public void fala() {
+		System.out.println("Eu falo, sou: " + getNome());
+	}
+	
 	public void ouve() {
-		// TODO Auto-generated method stub
+		System.out.println("Estou ouvindo...");
 	}
-
-	public boolean temTelefone() {
-		return !telefones.isEmpty();
-	}
-
-	public int temQuantosTelefones() {
-		return telefones.size();
-	}
-
-	public boolean temEndereco() {
-		return false;
-	}
-
-	@Override
-	public String toString() {
-		return "Pessoa: [ "
-				+ "\nnome=" + nome + ", "
-				+ "\nidade=" + idade + ", "
-				+ "\nsexo=" + sexo + ", "
-				+ "\nidentidade=" + identidade+ ", "
-				+ "\ntelefone=" + telefones + ", "
-				+ "\nendereco=" + endereco + "\n]";
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
+	
 	public int getIdade() {
 		return idade;
 	}
@@ -79,29 +47,16 @@ public class Pessoa {
 	public void setSexo(char sexo) {
 		this.sexo = sexo;
 	}
-
-	public Integer getIdentidade() {
-		return identidade;
-	}
-
-	public void setIdentidade(Integer identidade) {
-		this.identidade = identidade;
-	}
-
-	public List<Telefone> getTelefones() {
-		return telefones;
-	}
-
-	public void setTelefones(List<Telefone> telefones) {
-		this.telefones = telefones;
-	}
-
-	public Endereco getEndereco() {
-		return endereco;
-	}
-
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
+	
+	@Override
+	public String toString() {
+		return "Pessoa: [ "
+				+ "\nnome=" + getNome() + ", "
+				+ "\nidade=" + idade + ", "
+				+ "\nsexo=" + sexo + ", "
+				+ "\nidentidade=" + getDcumento()+ ", "
+				+ "\ntelefone=" + getTelefones() + ", "
+				+ "\nendereco=" + getEndereco() + "\n]";
 	}
 
 }
