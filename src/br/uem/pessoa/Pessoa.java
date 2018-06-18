@@ -5,20 +5,17 @@ import java.util.List;
 import br.uem.Telefone;
 import br.uem.endereco.Endereco;
 
-public abstract class Pessoa {
+public class Pessoa implements PessoaI {
 	
 	private String nome;
 	private Documento documento;
 	private List<Telefone> telefones;	
 	private Endereco endereco;
 	
-	public Pessoa(String nome, Documento documento, List<Telefone> telefone) {
+	public Pessoa(String nome, List<Telefone> telefone) {
 		this.nome = nome;
-		this.documento = documento;
 		this.telefones = telefone;
 	}
-	
-	public abstract String souDoTipo();
 
 	public boolean temTelefone() {
 		return !telefones.isEmpty();
@@ -44,7 +41,7 @@ public abstract class Pessoa {
 		return documento;
 	}
 
-	public void setIdentidade(Documento identidade) {
+	public void setDocumento(Documento identidade) {
 		this.documento = identidade;
 	}
 
@@ -62,6 +59,11 @@ public abstract class Pessoa {
 
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
+	}
+
+	@Override
+	public String souDoTipo() {
+		return this.getClass().toString();
 	}
 
 }

@@ -9,7 +9,7 @@ public class CPF implements Documento, Comparable<Integer> {
 	}
 
 	@Override
-	public Integer numero() {
+	public Integer getNumero() {
 		return numero;
 	}
 

@@ -10,7 +10,8 @@ public final class PessoaFisica extends Pessoa {
 	private char sexo;
 	
 	public PessoaFisica(String nome, int idade, char sexo, CPF cpf, List<Telefone> telefone) {
-		super(nome, cpf, telefone);
+		super(nome, telefone);
+		setDocumento(cpf);
 		this.idade = idade;
 		this.sexo = sexo;
 	}

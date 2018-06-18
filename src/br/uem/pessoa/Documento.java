@@ -2,6 +2,6 @@ package br.uem.pessoa;
 
 public interface Documento {
 	
-	public Integer numero();
+	public Integer getNumero();
 
 }
