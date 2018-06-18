@@ -2,15 +2,17 @@ package br.uem.pessoa;
 
 public class CNPJ implements Documento {
 	
-	Integer cnpj;
+	String cnpj;
 	
-	public CNPJ(Integer cnpj) {
+	public CNPJ(String cnpj) {
 		this.cnpj = cnpj;
 	}
 
 	@Override
-	public Integer getNumero() {
+	public String getNumero() {
 		return cnpj;
 	}
+	
+	// https://www.devmedia.com.br/validando-o-cnpj-em-uma-aplicacao-java/22374
 
 }

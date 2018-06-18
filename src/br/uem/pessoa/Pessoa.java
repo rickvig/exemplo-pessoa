@@ -4,8 +4,9 @@ import java.util.List;
 
 import br.uem.Telefone;
 import br.uem.endereco.Endereco;
+import br.uem.util.Util;
 
-public class Pessoa implements PessoaI {
+public abstract class Pessoa {
 	
 	private String nome;
 	private Documento documento;
@@ -16,6 +17,8 @@ public class Pessoa implements PessoaI {
 		this.nome = nome;
 		this.telefones = telefone;
 	}
+	
+	public abstract String souDoTipo();
 
 	public boolean temTelefone() {
 		return !telefones.isEmpty();
@@ -26,7 +29,7 @@ public class Pessoa implements PessoaI {
 	}
 
 	public boolean temEndereco() {
-		return false;
+		return endereco != null ? true : false;
 	}
 
 	public String getNome() {
@@ -37,8 +40,16 @@ public class Pessoa implements PessoaI {
 		this.nome = nome;
 	}
 
-	public Documento getDcumento() {
+	public Documento getDocumento() {
 		return documento;
+	}
+	
+	// transfomar em método abstrado
+	public String getDocumentoFormatado() {
+		if (documento instanceof CPF) {
+			return Util.formatString(documento.getNumero(), "###.###.###-##");
+		}
+		return "";
 	}
 
 	public void setDocumento(Documento identidade) {
@@ -59,11 +70,6 @@ public class Pessoa implements PessoaI {
 
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
-	}
-
-	@Override
-	public String souDoTipo() {
-		return this.getClass().toString();
 	}
 
 }

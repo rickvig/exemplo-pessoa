@@ -4,12 +4,12 @@ import java.util.List;
 
 import br.uem.Telefone;
 
-public final class PessoaFisica extends Pessoa {
+public class PessoaFisica extends Pessoa {
 	
 	private int idade;
-	private char sexo;
+	private Sexo sexo;
 	
-	public PessoaFisica(String nome, int idade, char sexo, CPF cpf, List<Telefone> telefone) {
+	public PessoaFisica(String nome, int idade, Sexo sexo, CPF cpf, List<Telefone> telefone) {
 		super(nome, telefone);
 		setDocumento(cpf);
 		this.idade = idade;
@@ -32,20 +32,12 @@ public final class PessoaFisica extends Pessoa {
 	public void ouve() {
 		System.out.println("Estou ouvindo...");
 	}
-	
-	public int getIdade() {
-		return idade;
+
+	public String getSexo() {
+		return sexo.valor;
 	}
 
-	public void setIdade(int idade) {
-		this.idade = idade;
-	}
-
-	public char getSexo() {
-		return sexo;
-	}
-
-	public void setSexo(char sexo) {
+	public void setSexo(Sexo sexo) {
 		this.sexo = sexo;
 	}
 	
@@ -55,7 +47,7 @@ public final class PessoaFisica extends Pessoa {
 				+ "\nnome=" + getNome() + ", "
 				+ "\nidade=" + idade + ", "
 				+ "\nsexo=" + sexo + ", "
-				+ "\nidentidade=" + getDcumento()+ ", "
+				+ "\nidentidade=" + getDocumento()+ ", "
 				+ "\ntelefone=" + getTelefones() + ", "
 				+ "\nendereco=" + getEndereco() + "\n]";
 	}

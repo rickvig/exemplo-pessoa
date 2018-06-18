@@ -15,7 +15,9 @@ public class PessoaJuridica extends Pessoa {
 
 	@Override
 	public String souDoTipo() {
-		return this.getClass().toString();
+		// TODO Auto-generated method stub
+		return null;
 	}
+
 
 }

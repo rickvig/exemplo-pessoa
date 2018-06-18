@@ -1,22 +1,19 @@
 package br.uem.pessoa;
 
-public class CPF implements Documento, Comparable<Integer> {
+public class CPF implements Documento {
 
-	private Integer numero;
+	private String numero;
 	
-	public CPF(Integer numero) {
+	public CPF(String numero) {
 		this.numero = numero;
 	}
 
 	@Override
-	public Integer getNumero() {
+	public String getNumero() {
 		return numero;
 	}
-
-	@Override
-	public int compareTo(Integer o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	
+	// https://www.devmedia.com.br/validando-o-cpf-em-uma-aplicacao-java/22097
+	// https://github.com/raphaeloneves/validador-cpf-annotation/blob/master/src/main/java/br/com/raphaelneves/cpf/validator/CpfValidator.java
 
 }

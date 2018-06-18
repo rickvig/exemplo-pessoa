@@ -2,6 +2,8 @@ package br.uem.pessoa;
 
 public interface Documento {
 	
-	public Integer getNumero();
+	public String getNumero();
+	
+	//public boolean valido();
 
 }
