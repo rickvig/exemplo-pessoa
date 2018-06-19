@@ -3,6 +3,7 @@ package br.uem.pessoa;
 import java.util.List;
 
 import br.uem.Telefone;
+import br.uem.util.Util;
 
 public class PessoaFisica extends Pessoa {
 	
@@ -50,6 +51,11 @@ public class PessoaFisica extends Pessoa {
 				+ "\nidentidade=" + getDocumento()+ ", "
 				+ "\ntelefone=" + getTelefones() + ", "
 				+ "\nendereco=" + getEndereco() + "\n]";
+	}
+	
+	@Override
+	public String getDocumentoFormatado() {
+		return Util.formatString(getDocumento().getNumero(), "###.###.###-##");
 	}
 
 }

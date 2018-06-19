@@ -3,6 +3,7 @@ package br.uem.pessoa;
 import java.util.List;
 
 import br.uem.Telefone;
+import br.uem.util.Util;
 
 public class PessoaJuridica extends Pessoa {
 	
@@ -15,9 +16,19 @@ public class PessoaJuridica extends Pessoa {
 
 	@Override
 	public String souDoTipo() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.getClass().toString();
 	}
 
+	public String getNomeFantasia() {
+		return nomeFantasia;
+	}
 
+	public void setNomeFantasia(String string) {
+		this.nomeFantasia = string;
+	}
+
+	@Override
+	public String getDocumentoFormatado() {
+		return Util.formatString(getDocumento().getNumero(), "##.###.###/####-##");
+	}
 }

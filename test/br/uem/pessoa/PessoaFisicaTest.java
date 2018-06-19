@@ -25,7 +25,7 @@ public class PessoaFisicaTest {
 
 	@Test
 	public void testSouDoTipo() {
-		assertEquals(PessoaFisica.class, subject.getClass());
+		assertEquals(PessoaFisica.class, subject.souDoTipo());
 	}
 	
 	@Test

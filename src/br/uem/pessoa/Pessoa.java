@@ -45,12 +45,7 @@ public abstract class Pessoa {
 	}
 	
 	// transfomar em método abstrado
-	public String getDocumentoFormatado() {
-		if (documento instanceof CPF) {
-			return Util.formatString(documento.getNumero(), "###.###.###-##");
-		}
-		return "";
-	}
+	public abstract String getDocumentoFormatado();
 
 	public void setDocumento(Documento identidade) {
 		this.documento = identidade;

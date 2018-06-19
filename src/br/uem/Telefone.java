@@ -13,7 +13,12 @@ public class Telefone {
 	}
 	
 	public Telefone(String telefone) {
-		//44 9 99410923
+		telefone = telefone.replaceAll(" ", "")
+				.replaceAll("\\(", "")
+				.replaceAll("\\)", "")
+				.replaceAll("-", "");
+
+		isValido(telefone);
 		ddd = parseInt(telefone.substring(0, 2));
 		digito = parseInt(telefone.substring(2, 3));
 		numero = parseInt(telefone.substring(3, 11));
@@ -24,11 +29,15 @@ public class Telefone {
 		return "Telefone [ddd=" + ddd + ", digito=" + digito + ", numero=" + numero + "]";
 	}
 
-	public boolean isValido() {
+	public boolean isValido(String tel) {
 		String regex = "^[1-9]{2}?9([0-9]{8})$";
 
-		String numeroTelefone = "" + ddd + digito + numero;
-		return numeroTelefone.matches(regex);
+		boolean matches = tel.matches(regex);			
+		
+		if (!matches) 
+			throw new RuntimeException("Telefone inválido!");
+		
+		return matches;
 	}
 
 	public int getDdd() {

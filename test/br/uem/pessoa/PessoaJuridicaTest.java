@@ -1,5 +1,6 @@
 package br.uem.pessoa;
 
+import static java.util.Arrays.asList;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -8,6 +9,8 @@ import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.Test;
 
+import br.uem.Telefone;
+
 public class PessoaJuridicaTest {
 	
 	private PessoaJuridica subject;
@@ -15,11 +18,16 @@ public class PessoaJuridicaTest {
 	@Before
 	public void setup() {
 		
+		Telefone telefone = new Telefone("44999410923");
+		CNPJ cnpj = new CNPJ("84800290000148");
+		
+		subject = new PessoaJuridica("Henrique ltd", cnpj, asList(telefone));
+		
 	}
 
 	@Test
 	public void testSouDoTipo() {
-		assertEquals(PessoaJuridica.class, subject.getClass());
+		assertEquals(PessoaJuridica.class, subject.souDoTipo());
 	}
 	
 	@Test
@@ -29,7 +37,8 @@ public class PessoaJuridicaTest {
 
 	@Test
 	public void testNomeFantasia() {
-		fail("not implemented yet...");
+		subject.setNomeFantasia("Loja do Henrique");
+		assertEquals("Loja do Henrique", subject.getNomeFantasia());
 	}
 	
 	@Test
@@ -49,7 +58,7 @@ public class PessoaJuridicaTest {
 		
 	@Test
 	public void testRetornaCNPJFormatado() {
-		fail("not implemented yet...");
+		assertEquals("84.800.290/0001-48", subject.getDocumentoFormatado());
 	}
 
 }
